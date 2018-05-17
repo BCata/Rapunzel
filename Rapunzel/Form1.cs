@@ -17,5 +17,10 @@ namespace Rapunzel {
         private void exit_button_Click(object sender, EventArgs e) {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            PlayStory playStory = new PlayStory(1);
+            playStory.Show();
+        }
     }
 }

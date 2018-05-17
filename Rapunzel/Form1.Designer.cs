@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.exit_button = new System.Windows.Forms.Button();
+            this.play_story_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exit_button
@@ -37,6 +38,16 @@
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
+            // play_story_button
+            // 
+            this.play_story_button.Location = new System.Drawing.Point(1032, 716);
+            this.play_story_button.Name = "play_story_button";
+            this.play_story_button.Size = new System.Drawing.Size(359, 90);
+            this.play_story_button.TabIndex = 1;
+            this.play_story_button.Text = "Play Story";
+            this.play_story_button.UseVisualStyleBackColor = true;
+            this.play_story_button.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -44,6 +55,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1955, 1312);
+            this.Controls.Add(this.play_story_button);
             this.Controls.Add(this.exit_button);
             this.Name = "Form1";
             this.Text = "Main Page";
@@ -55,6 +67,7 @@
         #endregion
 
         private System.Windows.Forms.Button exit_button;
+        private System.Windows.Forms.Button play_story_button;
     }
 }
 
