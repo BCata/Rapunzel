@@ -32,20 +32,21 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(44, 29);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(747, 438);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1280, 720);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // PlayStory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 610);
+            this.ClientSize = new System.Drawing.Size(1248, 632);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "PlayStory";
             this.Text = "PlayStory";
+            this.Load += new System.EventHandler(this.PlayStory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 

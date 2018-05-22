@@ -39,5 +39,10 @@ namespace Rapunzel
                 this.Close();
             }
         }
+
+        private void PlayStory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,6 +12,10 @@ namespace Rapunzel
 {
     public partial class VideoQuiz : Form
     {
+        private String audioPath = "audio/";
+        private String audioExtension = ".mp3";
+        private String imagePath = "images/";
+        private String imageExtension = ".png";
         private int quizNr;
 
         public VideoQuiz(int quizNr)
@@ -22,6 +26,13 @@ namespace Rapunzel
 
         private void VideoQuiz_Load(object sender, EventArgs e)
         {
+            Image myimage = new Bitmap(imagePath + quizNr + imageExtension);
+            this.BackgroundImage = myimage;
+
+            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+            wplayer.URL = audioPath + quizNr + audioExtension;
+            wplayer.controls.play();
+
 
         }
         
