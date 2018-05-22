@@ -42,7 +42,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 632);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "PlayStory";
             this.Text = "PlayStory";
