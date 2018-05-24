@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\main_menu_background.jpg" />
+    <None Include="resources\sprites\play_button.png" />
     <None Include="resources\sprites\tile.png" />
   </ItemGroup>
   <ItemGroup>

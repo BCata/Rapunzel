@@ -19,8 +19,10 @@ namespace Rapunzel {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            PlayStory playStory = new PlayStory(1);
-            playStory.Show();
+            //PlayStory playStory = new PlayStory(1);
+            //playStory.Show();
+            VideoQuiz videoQuiz = new VideoQuiz(1);
+            videoQuiz.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
