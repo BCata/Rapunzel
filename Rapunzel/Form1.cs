@@ -22,5 +22,10 @@ namespace Rapunzel {
             PlayStory playStory = new PlayStory(1);
             playStory.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
