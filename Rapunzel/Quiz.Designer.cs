@@ -51,7 +51,7 @@
             this.speaker.Size = new System.Drawing.Size(200, 200);
             this.speaker.TabIndex = 0;
             this.speaker.UseVisualStyleBackColor = true;
-            this.speaker.Click += new System.EventHandler(this.button1_Click);
+            this.speaker.Click += new System.EventHandler(this.speaker_Click);
             // 
             // play_button
             // 
@@ -70,7 +70,8 @@
             this.play_button.Size = new System.Drawing.Size(150, 150);
             this.play_button.TabIndex = 0;
             this.play_button.UseVisualStyleBackColor = true;
-            this.play_button.Click += new System.EventHandler(this.button1_Click);
+            this.play_button.Visible = false;
+            this.play_button.Click += new System.EventHandler(this.play_button_Click);
             // 
             // answer1
             // 
@@ -87,6 +88,7 @@
             this.answer1.Size = new System.Drawing.Size(250, 250);
             this.answer1.TabIndex = 1;
             this.answer1.UseVisualStyleBackColor = true;
+            this.answer1.Click += new System.EventHandler(this.answer_Click);
             // 
             // answer2
             // 
@@ -103,6 +105,7 @@
             this.answer2.Size = new System.Drawing.Size(250, 250);
             this.answer2.TabIndex = 2;
             this.answer2.UseVisualStyleBackColor = true;
+            this.answer2.Click += new System.EventHandler(this.answer_Click);
             // 
             // answer3
             // 
@@ -119,12 +122,12 @@
             this.answer3.Size = new System.Drawing.Size(250, 250);
             this.answer3.TabIndex = 3;
             this.answer3.UseVisualStyleBackColor = true;
+            this.answer3.Click += new System.EventHandler(this.answer_Click);
             // 
             // Quiz
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.answer3);
             this.Controls.Add(this.answer2);
@@ -136,7 +139,6 @@
             this.Text = "Quiz";
             this.Load += new System.EventHandler(this.Quiz_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion
