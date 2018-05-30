@@ -44,5 +44,10 @@ namespace Rapunzel
         {
 
         }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

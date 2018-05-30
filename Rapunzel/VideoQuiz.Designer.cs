@@ -28,33 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.play_button = new System.Windows.Forms.Button();
+            this.speaker = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // play_button
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Rapunzel.Properties.Resources.play_button;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1100, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 150);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.play_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.play_button.BackColor = System.Drawing.Color.Transparent;
+            this.play_button.BackgroundImage = global::Rapunzel.Properties.Resources.play_button;
+            this.play_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.play_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.play_button.FlatAppearance.BorderSize = 0;
+            this.play_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.play_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.play_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.play_button.ForeColor = System.Drawing.Color.White;
+            this.play_button.Location = new System.Drawing.Point(1100, 550);
+            this.play_button.Name = "play_button";
+            this.play_button.Size = new System.Drawing.Size(150, 150);
+            this.play_button.TabIndex = 0;
+            this.play_button.UseVisualStyleBackColor = true;
+            this.play_button.Visible = false;
+            this.play_button.Click += new System.EventHandler(this.play_button_Click);
+            // 
+            // speaker
+            // 
+            this.speaker.BackColor = System.Drawing.Color.Transparent;
+            this.speaker.BackgroundImage = global::Rapunzel.Properties.Resources.speaker;
+            this.speaker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.speaker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.speaker.FlatAppearance.BorderSize = 0;
+            this.speaker.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.speaker.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.speaker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.speaker.Location = new System.Drawing.Point(100, 50);
+            this.speaker.Name = "speaker";
+            this.speaker.Size = new System.Drawing.Size(200, 200);
+            this.speaker.TabIndex = 0;
+            this.speaker.UseVisualStyleBackColor = true;
+            this.speaker.Click += new System.EventHandler(this.speaker_Click);
             // 
             // VideoQuiz
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.speaker);
+            this.Controls.Add(this.play_button);
             this.Name = "VideoQuiz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VideoQuiz";
@@ -65,6 +85,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button play_button;
+        private System.Windows.Forms.Button speaker;
     }
 }
