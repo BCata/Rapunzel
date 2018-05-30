@@ -27,10 +27,10 @@ namespace Rapunzel {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //PlayStory playStory = new PlayStory(1);
-            //playStory.Show();
-            VideoQuiz videoQuiz = new VideoQuiz(6);
-            videoQuiz.Show();
+            PlayStory playStory = new PlayStory(1);
+            playStory.Show();
+            //VideoQuiz videoQuiz = new VideoQuiz(6);
+            //videoQuiz.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)

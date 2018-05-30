@@ -66,6 +66,12 @@
     <Compile Include="Quiz.Designer.cs">
       <DependentUpon>Quiz.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuizWithoutAnswers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizWithoutAnswers.Designer.cs">
+      <DependentUpon>QuizWithoutAnswers.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoQuiz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <EmbeddedResource Include="Quiz.resx">
       <DependentUpon>Quiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizWithoutAnswers.resx">
+      <DependentUpon>QuizWithoutAnswers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoQuiz.resx">
       <DependentUpon>VideoQuiz.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Rapunzel
 {
-    partial class Quiz
+    partial class QuizWithoutAnswers
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quiz));
             this.speaker = new System.Windows.Forms.Button();
             this.play_button = new System.Windows.Forms.Button();
-            this.answer1 = new System.Windows.Forms.Button();
-            this.answer2 = new System.Windows.Forms.Button();
-            this.answer3 = new System.Windows.Forms.Button();
+            this.center_image = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // speaker
@@ -73,80 +70,41 @@
             this.play_button.Visible = false;
             this.play_button.Click += new System.EventHandler(this.play_button_Click);
             // 
-            // answer1
+            // center_image
             // 
-            this.answer1.BackColor = System.Drawing.Color.Transparent;
-            this.answer1.BackgroundImage = global::Rapunzel.Properties.Resources.speaker;
-            this.answer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.answer1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.answer1.FlatAppearance.BorderSize = 3;
-            this.answer1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.answer1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.answer1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.answer1.Location = new System.Drawing.Point(200, 300);
-            this.answer1.Name = "answer1";
-            this.answer1.Size = new System.Drawing.Size(250, 250);
-            this.answer1.TabIndex = 1;
-            this.answer1.UseVisualStyleBackColor = true;
-            this.answer1.Click += new System.EventHandler(this.answer_Click);
+            this.center_image.BackColor = System.Drawing.Color.Transparent;
+            this.center_image.BackgroundImage = global::Rapunzel.Properties.Resources.speaker;
+            this.center_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.center_image.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.center_image.FlatAppearance.BorderSize = 0;
+            this.center_image.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.center_image.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.center_image.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.center_image.Location = new System.Drawing.Point(520, 300);
+            this.center_image.Name = "center_image";
+            this.center_image.Size = new System.Drawing.Size(250, 250);
+            this.center_image.TabIndex = 1;
+            this.center_image.UseVisualStyleBackColor = true;
             // 
-            // answer2
-            // 
-            this.answer2.BackColor = System.Drawing.Color.Transparent;
-            this.answer2.BackgroundImage = global::Rapunzel.Properties.Resources.speaker;
-            this.answer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.answer2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.answer2.FlatAppearance.BorderSize = 3;
-            this.answer2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.answer2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.answer2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.answer2.Location = new System.Drawing.Point(520, 300);
-            this.answer2.Name = "answer2";
-            this.answer2.Size = new System.Drawing.Size(250, 250);
-            this.answer2.TabIndex = 2;
-            this.answer2.UseVisualStyleBackColor = true;
-            this.answer2.Click += new System.EventHandler(this.answer_Click);
-            // 
-            // answer3
-            // 
-            this.answer3.BackColor = System.Drawing.Color.Transparent;
-            this.answer3.BackgroundImage = global::Rapunzel.Properties.Resources.speaker;
-            this.answer3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.answer3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.answer3.FlatAppearance.BorderSize = 3;
-            this.answer3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.answer3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.answer3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.answer3.Location = new System.Drawing.Point(840, 300);
-            this.answer3.Name = "answer3";
-            this.answer3.Size = new System.Drawing.Size(250, 250);
-            this.answer3.TabIndex = 3;
-            this.answer3.UseVisualStyleBackColor = true;
-            this.answer3.Click += new System.EventHandler(this.answer_Click);
-            // 
-            // Quiz
+            // QuizWithoutAnswers
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.answer3);
-            this.Controls.Add(this.answer2);
-            this.Controls.Add(this.answer1);
+            this.Controls.Add(this.center_image);
             this.Controls.Add(this.play_button);
             this.Controls.Add(this.speaker);
-            this.Name = "Quiz";
+            this.Name = "QuizWithoutAnswers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quiz";
-            this.Load += new System.EventHandler(this.Quiz_Load);
+            this.Text = "QuizWithoutAnswers";
             this.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.QuizWithoutAnswers_Load);
         }
 
         #endregion
 
         private System.Windows.Forms.Button speaker;
         private System.Windows.Forms.Button play_button;
-        private System.Windows.Forms.Button answer1;
-        private System.Windows.Forms.Button answer2;
-        private System.Windows.Forms.Button answer3;
+        private System.Windows.Forms.Button center_image;
     }
 }

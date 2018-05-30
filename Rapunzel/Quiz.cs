@@ -78,9 +78,18 @@ namespace Rapunzel
 
         private void play_button_Click(object sender, EventArgs e)
         {
-            Quiz quiz = new Quiz(this.quizNr + 1, nextVideo);
-            quiz.Show();
-            this.Close();
+            if (quizNr == 2)
+            {
+                QuizWithoutAnswers quiz = new QuizWithoutAnswers(this.quizNr + 1, nextVideo);
+                quiz.Show();
+                this.Close();
+            }
+            else
+            {
+                Quiz quiz = new Quiz(this.quizNr + 1, nextVideo);
+                quiz.Show();
+                this.Close();
+            }
         }
 
         private void finishQuiz()
