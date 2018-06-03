@@ -63,6 +63,12 @@ namespace Rapunzel
                 quiz.Show();
                 this.Close();
             }
+            else if (quizNr == 11)
+            {
+                Quiz quiz = new Quiz(4, quizNr + 1);
+                quiz.Show();
+                this.Close();
+            }
             else
             {
                 PlayStory playStory = new PlayStory(quizNr + 1);

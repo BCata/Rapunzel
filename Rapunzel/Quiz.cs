@@ -48,8 +48,19 @@ namespace Rapunzel
             if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
                 WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+                //wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
                 wplayer.URL = audioPath + "select_image" + audioExtension;
                 wplayer.controls.play();
+            }
+        }
+
+        void playInstructions(int NewState)
+        {
+            if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
+            {
+                WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
+                wplayer2.URL = audioPath + "arrow_button" + audioExtension;
+                wplayer2.controls.play();
             }
         }
 
