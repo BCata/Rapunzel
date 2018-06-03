@@ -36,6 +36,12 @@ namespace Rapunzel
                 wplayer.URL = audioPath + "lets_learn" + audioExtension;
                 wplayer.controls.play();
             }
+            else
+            {
+                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+                wplayer.URL = audioPath + "press_speaker" + audioExtension;
+                wplayer.controls.play();
+            }
 
             if (quizNr == 2)
             {
@@ -83,8 +89,19 @@ namespace Rapunzel
         private void playWord()
         {
             WMPLib.WindowsMediaPlayer wplayer1 = new WMPLib.WindowsMediaPlayer();
+            wplayer1.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
             wplayer1.URL = audioPath + quizNr + audioExtension;
             wplayer1.controls.play();
+        }
+
+        void playInstructions(int NewState)
+        {
+            if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
+            {
+                WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
+                wplayer2.URL = audioPath + "arrow_button" + audioExtension;
+                wplayer2.controls.play();
+            }
         }
     }
 }
