@@ -34,9 +34,9 @@ namespace Rapunzel
         {
             if (e.newState == 8)
             {
-                if (this.videoNr == 11)
+                if (this.videoNr == 12)
                 {
-                    PlayStory videoQuiz = new PlayStory(12);
+                    PlayStory videoQuiz = new PlayStory(13);
                     videoQuiz.Show();
                     this.Close();
                 }

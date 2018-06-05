@@ -17,6 +17,12 @@ namespace Rapunzel
         private String imagePath = "images/";
         private String imageExtension = ".png";
         private int quizNr;
+        private int arrowCounter = 0;
+
+        private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer playWordPlayer = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer instrPlayer = new WMPLib.WindowsMediaPlayer();
 
         public VideoQuiz(int quizNr)
         {
@@ -31,16 +37,17 @@ namespace Rapunzel
 
             if (quizNr == 1)
             {
-                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-                wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(lets_learn_on_end);
-                wplayer.URL = audioPath + "lets_learn" + audioExtension;
-                wplayer.controls.play();
+                this.wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(lets_learn_on_end);
+                this.wplayer.URL = audioPath + "lets_learn" + audioExtension;
+                this.wplayer.controls.play();
             }
             else
             {
-                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-                wplayer.URL = audioPath + "press_speaker" + audioExtension;
-                wplayer.controls.play();
+                if (quizNr < 5)
+                {
+                    this.wplayer.URL = audioPath + "press_speaker" + audioExtension;
+                    this.wplayer.controls.play();
+                }
             }
 
             if (quizNr == 2)
@@ -51,12 +58,20 @@ namespace Rapunzel
         
         private void speaker_Click(object sender, EventArgs e)
         {
+            this.wplayer.controls.stop();
+            this.wplayer2.controls.stop();
+            this.instrPlayer.controls.stop();
+            this.playWordPlayer.controls.stop();
+
             playWord();
             finishQuiz();
         }
 
         private void play_button_Click(object sender, EventArgs e)
         {
+            this.playWordPlayer.controls.stop();
+            this.instrPlayer.controls.stop();
+
             if (quizNr == 6)
             {
                 Quiz quiz = new Quiz(1, quizNr + 1);
@@ -86,27 +101,25 @@ namespace Rapunzel
         {
             if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
-                wplayer2.URL = audioPath + "press_speaker" + audioExtension;
-                wplayer2.controls.play();
+                this.wplayer2.URL = audioPath + "press_speaker" + audioExtension;
+                this.wplayer2.controls.play();
             }
         }
 
         private void playWord()
         {
-            WMPLib.WindowsMediaPlayer wplayer1 = new WMPLib.WindowsMediaPlayer();
-            wplayer1.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
-            wplayer1.URL = audioPath + quizNr + audioExtension;
-            wplayer1.controls.play();
+            this.playWordPlayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
+            this.playWordPlayer.URL = audioPath + quizNr + audioExtension;
+            this.playWordPlayer.controls.play();
         }
 
         void playInstructions(int NewState)
         {
-            if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
+            if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded && arrowCounter < 1 && quizNr < 5)
             {
-                WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
-                wplayer2.URL = audioPath + "arrow_button" + audioExtension;
-                wplayer2.controls.play();
+                arrowCounter++;
+                this.instrPlayer.URL = audioPath + "arrow_button" + audioExtension;
+                this.instrPlayer.controls.play();
             }
         }
     }

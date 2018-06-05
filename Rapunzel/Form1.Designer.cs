@@ -49,7 +49,6 @@
             // 
             // Form1
             // 
-            
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
@@ -59,7 +58,6 @@
             this.Text = "Main Page";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion

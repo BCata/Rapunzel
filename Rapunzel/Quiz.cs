@@ -19,6 +19,11 @@ namespace Rapunzel
         private int nextVideo;
         private int rightAnswer;
 
+        private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer selectImagePlayer = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer speakerPlayer = new WMPLib.WindowsMediaPlayer();
+
         public Quiz(int quizNr, int nextVideo)
         {
             this.quizNr = quizNr;
@@ -36,10 +41,9 @@ namespace Rapunzel
 
             if (quizNr == 1)
             {
-                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-                wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(rapunzel_again_on_end);
-                wplayer.URL = audioPath + "rapunzel_again" + audioExtension;
-                wplayer.controls.play();
+                this.wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(rapunzel_again_on_end);
+                this.wplayer.URL = audioPath + "rapunzel_again" + audioExtension;
+                this.wplayer.controls.play();
             }
         }
 
@@ -47,10 +51,9 @@ namespace Rapunzel
         {
             if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-                //wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
-                wplayer.URL = audioPath + "select_image" + audioExtension;
-                wplayer.controls.play();
+                this.selectImagePlayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(playInstructions);
+                this.selectImagePlayer.URL = audioPath + "press_speaker" + audioExtension;
+                this.selectImagePlayer.controls.play();
             }
         }
 
@@ -58,41 +61,59 @@ namespace Rapunzel
         {
             if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
-                wplayer2.URL = audioPath + "arrow_button" + audioExtension;
-                wplayer2.controls.play();
+                this.wplayer2.URL = audioPath + "select_image" + audioExtension;
+                this.wplayer2.controls.play();
             }
         }
 
         private void speaker_Click(object sender, EventArgs e)
         {
-            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-            wplayer.URL = audioPath + "quiz" + quizNr + audioExtension;
-            wplayer.controls.play();
+            this.wplayer.controls.stop();
+            this.selectImagePlayer.controls.stop();
+            this.wplayer2.controls.stop();
+
+            this.speakerPlayer.URL = audioPath + "quiz" + quizNr + audioExtension;
+            this.speakerPlayer.controls.play();
         }
 
         private void answer_Click(object sender, EventArgs e)
         {
-            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+            this.wplayer.controls.stop();
+            this.selectImagePlayer.controls.stop();
+            this.wplayer2.controls.stop();
+            this.speakerPlayer.controls.stop();
+
+            WMPLib.WindowsMediaPlayer answerPlayer = new WMPLib.WindowsMediaPlayer();
             if (((Button)sender).Name.Equals("answer" + rightAnswer))
             {
-                wplayer.URL = audioPath + "good_job" + audioExtension;
-                wplayer.controls.play();
+                answerPlayer.URL = audioPath + "good_job" + audioExtension;
+                answerPlayer.controls.play();
                 finishQuiz();
             }
             else
             {
-                wplayer.URL = audioPath + "wrong" + audioExtension;
-                wplayer.controls.play();
+                answerPlayer.URL = audioPath + "wrong" + audioExtension;
+                answerPlayer.controls.play();
             }
         }
 
         private void play_button_Click(object sender, EventArgs e)
         {
+            this.wplayer.controls.stop();
+            this.selectImagePlayer.controls.stop();
+            this.wplayer2.controls.stop();
+            this.speakerPlayer.controls.stop();
+
             if (quizNr == 2)
             {
                 QuizWithoutAnswers quiz = new QuizWithoutAnswers(this.quizNr + 1, nextVideo);
                 quiz.Show();
+                this.Close();
+            }
+            else if (quizNr == 6)
+            {
+                PlayStory play = new PlayStory(nextVideo);
+                play.Show();
                 this.Close();
             }
             else

@@ -18,6 +18,8 @@ namespace Rapunzel
         private int quizNr;
         private int nextVideo;
 
+        private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
         public QuizWithoutAnswers(int quizNr, int nextVideo)
         {
             this.quizNr = quizNr;
@@ -33,10 +35,9 @@ namespace Rapunzel
 
         private void speaker_Click(object sender, EventArgs e)
         {
-            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-            wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(audio_end);
-            wplayer.URL = audioPath + "quiz" + quizNr + audioExtension;
-            wplayer.controls.play();
+            this.wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(audio_end);
+            this.wplayer.URL = audioPath + "quiz" + quizNr + audioExtension;
+            this.wplayer.controls.play();
         }
 
         void audio_end(int NewState)
@@ -49,6 +50,8 @@ namespace Rapunzel
 
         private void play_button_Click(object sender, EventArgs e)
         {
+            this.wplayer.controls.stop();
+
             if (quizNr == 3)
             {
                 PlayStory playStory = new PlayStory(nextVideo);

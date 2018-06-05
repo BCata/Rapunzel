@@ -14,6 +14,7 @@ namespace Rapunzel {
 
         private String audioPath = "audio/";
         private String audioExtension = ".mp3";
+        private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         public Form1()
         {
@@ -27,19 +28,20 @@ namespace Rapunzel {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //PlayStory playStory = new PlayStory(1);
-            //playStory.Show();
+            this.wplayer.controls.stop();
+
+            PlayStory playStory = new PlayStory(17);
+            playStory.Show();
             //VideoQuiz videoQuiz = new VideoQuiz(1);
             //videoQuiz.Show();
-            Quiz quiz = new Quiz(1, 7);
-            quiz.Show();
+            //Quiz quiz = new Quiz(1, 7);
+            //quiz.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = new System.Drawing.Bitmap("images/main_menu_background.jpg");
 
-            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
             wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(wplayer_PlayStateChange);
             wplayer.URL = audioPath + "listen_carefully" + audioExtension;
             wplayer.controls.play();
