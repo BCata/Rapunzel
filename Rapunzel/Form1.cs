@@ -30,7 +30,7 @@ namespace Rapunzel {
         {
             this.wplayer.controls.stop();
 
-            PlayStory playStory = new PlayStory(17);
+            PlayStory playStory = new PlayStory(1);
             playStory.Show();
             //VideoQuiz videoQuiz = new VideoQuiz(1);
             //videoQuiz.Show();
