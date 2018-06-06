@@ -40,6 +40,12 @@ namespace Rapunzel
                     videoQuiz.Show();
                     this.Close();
                 }
+                else if (this.videoNr == 17)
+                {
+                    FinalScreen final = new FinalScreen();
+                    final.Show();
+                    this.Close();
+                }
                 else
                 {
                     VideoQuiz videoQuiz = new VideoQuiz(this.videoNr);
