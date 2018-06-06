@@ -50,7 +50,7 @@ namespace Rapunzel
                 }
             }
 
-            if (quizNr == 2)
+            if (quizNr == 2 || quizNr == 14)
             {
                 this.speaker.Location = new System.Drawing.Point(550, 50);
             }
