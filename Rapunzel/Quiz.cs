@@ -116,6 +116,12 @@ namespace Rapunzel
                 play.Show();
                 this.Close();
             }
+            else if (quizNr == 8)
+            {
+                PlayStory play = new PlayStory(nextVideo);
+                play.Show();
+                this.Close();
+            }
             else
             {
                 Quiz quiz = new Quiz(this.quizNr + 1, nextVideo);

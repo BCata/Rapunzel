@@ -38,6 +38,22 @@ namespace Rapunzel {
             //quiz.Show();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.wplayer.controls.stop();
+
+            PlayStory playStory = new PlayStory(7);
+            playStory.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.wplayer.controls.stop();
+
+            PlayStory playStory = new PlayStory(13);
+            playStory.Show();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = new System.Drawing.Bitmap("images/main_menu_background.jpg");

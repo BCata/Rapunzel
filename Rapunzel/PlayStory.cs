@@ -13,8 +13,10 @@ namespace Rapunzel
     public partial class PlayStory : Form
     {
         private String videoPath = "video/";
+        private String imagesPath = "images/";
         private String videoExtension = ".mp4";
         private int videoNr;
+        private int state;
 
         public PlayStory(int videoNr)
         {
@@ -22,6 +24,9 @@ namespace Rapunzel
             InitializeComponent();
             this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(axWindowsMediaPlayer1_PlayStateChange);
             play_the_story(videoNr);
+
+            Image myimage = new Bitmap("images/buttons/pause_btn.jpg");
+            this.button1.BackgroundImage = myimage;
         }
 
         private void play_the_story(int videoNr)
@@ -40,6 +45,12 @@ namespace Rapunzel
                     videoQuiz.Show();
                     this.Close();
                 }
+                else if (this.videoNr == 16)
+                {
+                    Quiz quiz = new Quiz(7, 17);
+                    quiz.Show();
+                    this.Close();
+                }
                 else if (this.videoNr == 17)
                 {
                     FinalScreen final = new FinalScreen();
@@ -52,6 +63,13 @@ namespace Rapunzel
                     videoQuiz.Show();
                     this.Close();
                 }
+            } else if (e.newState == 2)
+            {
+                this.state = 2;
+            }
+            else if (e.newState == 3)
+            {
+                this.state = 3;
             }
         }
 
@@ -63,6 +81,19 @@ namespace Rapunzel
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void play_button_Click(object sender, EventArgs e)
+        {
+            if (this.state == 2)
+            {
+                this.axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+            else if (this.state == 3)
+            {
+                this.axWindowsMediaPlayer1.Ctlcontrols.pause();
+            }
+            
         }
     }
 }
