@@ -23,10 +23,12 @@ namespace Rapunzel
         private WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
         private WMPLib.WindowsMediaPlayer playWordPlayer = new WMPLib.WindowsMediaPlayer();
         private WMPLib.WindowsMediaPlayer instrPlayer = new WMPLib.WindowsMediaPlayer();
+        private bool isFinalQuiz;
 
-        public VideoQuiz(int quizNr)
+        public VideoQuiz(int quizNr, bool isFinalQuiz = false)
         {
             this.quizNr = quizNr;
+            this.isFinalQuiz = isFinalQuiz;
             InitializeComponent();
         }
 
@@ -74,18 +76,36 @@ namespace Rapunzel
 
             if (quizNr == 6)
             {
-                Quiz quiz = new Quiz(1, quizNr + 1);
+                Quiz quiz = new Quiz(1, quizNr + 1, isFinalQuiz);
                 quiz.Show();
                 this.Close();
             }
             else if (quizNr == 11)
             {
-                Quiz quiz = new Quiz(4, quizNr + 1);
+                Quiz quiz = new Quiz(4, quizNr + 1, isFinalQuiz);
                 quiz.Show();
                 this.Close();
             }
-            else
+            else if(quizNr == 16) {
+                Quiz quiz = new Quiz(7, 17, isFinalQuiz);
+                quiz.Show();
+                this.Close();
+            }
+            else if(isFinalQuiz)
             {
+                if(quizNr == 16) {
+                    Quiz quiz = new Quiz(7, 17);
+                    quiz.Show();
+                    this.Close();
+
+
+                    new FinalScreen().Show();
+                    this.Close();
+                } else {
+                    new VideoQuiz(quizNr + 1, isFinalQuiz).Show();
+                    this.Close();
+                }
+            } else {
                 PlayStory playStory = new PlayStory(quizNr + 1);
                 playStory.Show();
                 this.Close();

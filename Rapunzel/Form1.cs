@@ -54,6 +54,13 @@ namespace Rapunzel {
             playStory.Show();
         }
 
+        private void buttonTestKnowledge_Click(object sender, EventArgs e) {
+            this.wplayer.controls.stop();
+
+            VideoQuiz videoQuiz = new VideoQuiz(1, true);
+            videoQuiz.Show();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = new System.Drawing.Bitmap("images/main_menu_background.jpg");

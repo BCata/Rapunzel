@@ -88,6 +88,7 @@
             // 
             // QuizWithoutAnswers
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
@@ -97,8 +98,9 @@
             this.Name = "QuizWithoutAnswers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuizWithoutAnswers";
-            this.ResumeLayout(false);
             this.Load += new System.EventHandler(this.QuizWithoutAnswers_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

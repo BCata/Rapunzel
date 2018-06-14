@@ -23,12 +23,14 @@ namespace Rapunzel
         private WMPLib.WindowsMediaPlayer selectImagePlayer = new WMPLib.WindowsMediaPlayer();
         private WMPLib.WindowsMediaPlayer wplayer2 = new WMPLib.WindowsMediaPlayer();
         private WMPLib.WindowsMediaPlayer speakerPlayer = new WMPLib.WindowsMediaPlayer();
+        private bool isFinalQuiz;
 
-        public Quiz(int quizNr, int nextVideo)
+        public Quiz(int quizNr, int nextVideo, bool isFinalQuiz = false)
         {
             this.quizNr = quizNr;
             this.nextVideo = nextVideo;
             this.rightAnswer = (quizNr % 3) + 1;
+            this.isFinalQuiz = isFinalQuiz;
             InitializeComponent();
         }
 
@@ -104,27 +106,34 @@ namespace Rapunzel
             this.wplayer2.controls.stop();
             this.speakerPlayer.controls.stop();
 
-            if (quizNr == 2)
-            {
-                QuizWithoutAnswers quiz = new QuizWithoutAnswers(this.quizNr + 1, nextVideo);
+            if(quizNr == 2) {
+                QuizWithoutAnswers quiz = new QuizWithoutAnswers(this.quizNr + 1, nextVideo, isFinalQuiz);
                 quiz.Show();
                 this.Close();
-            }
-            else if (quizNr == 6)
-            {
-                PlayStory play = new PlayStory(nextVideo);
-                play.Show();
-                this.Close();
+            } else if(quizNr == 6) {
+                if(isFinalQuiz) {
+                    new VideoQuiz(nextVideo, isFinalQuiz).Show();
+                    this.Close();
+                } else {
+                    PlayStory play = new PlayStory(nextVideo);
+                    play.Show();
+                    this.Close();
+                }
             }
             else if (quizNr == 8)
             {
-                PlayStory play = new PlayStory(nextVideo);
-                play.Show();
-                this.Close();
+                if(isFinalQuiz) {
+                    new FinalScreen().Show();
+                    this.Close();
+                } else {
+                    PlayStory play = new PlayStory(nextVideo);
+                    play.Show();
+                    this.Close();
+                }
             }
             else
             {
-                Quiz quiz = new Quiz(this.quizNr + 1, nextVideo);
+                Quiz quiz = new Quiz(this.quizNr + 1, nextVideo, isFinalQuiz);
                 quiz.Show();
                 this.Close();
             }
