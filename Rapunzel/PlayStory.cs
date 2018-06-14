@@ -25,8 +25,9 @@ namespace Rapunzel
             this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(axWindowsMediaPlayer1_PlayStateChange);
             play_the_story(videoNr);
 
-            Image myimage = new Bitmap("images/buttons/pause_btn.jpg");
-            this.button1.BackgroundImage = myimage;
+            pictureBoxPlayPause.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxPlayPause.BackColor = Color.Transparent;
+            pictureBoxPlayPause.Image = new Bitmap("images/buttons/pause_btn.png");
         }
 
         private void play_the_story(int videoNr)
@@ -83,17 +84,14 @@ namespace Rapunzel
 
         }
 
-        private void play_button_Click(object sender, EventArgs e)
-        {
-            if (this.state == 2)
-            {
+        private void pictureBoxPlayPause_Click(object sender, EventArgs e) {
+            if(this.state == 2) {
                 this.axWindowsMediaPlayer1.Ctlcontrols.play();
-            }
-            else if (this.state == 3)
-            {
+                pictureBoxPlayPause.Image = new Bitmap("images/buttons/pause_btn.png");
+            } else if(this.state == 3) {
                 this.axWindowsMediaPlayer1.Ctlcontrols.pause();
+                pictureBoxPlayPause.Image = new Bitmap("images/buttons/play_btn.png");
             }
-            
         }
     }
 }
